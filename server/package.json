@@ -1,0 +1,76 @@
+{
+  "name": "ksvue-factory-pre",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "dependencies": {
+    "@kaola/kapp-mock": "^1.5.13",
+    "@kapp/addressing": "^0.1.3-8",
+    "@kapp/core": "^0.1.18",
+    "@kapp/disconf": "^0.1.10-0",
+    "@kapp/disconf-toolkit": "^0.1.3-0",
+    "@kapp/grayscale": "^1.0.12",
+    "@kapp/health": "^0.1.5",
+    "@kapp/kafka": "^0.1.1",
+    "@kapp/kagent": "^0.1.9",
+    "@kapp/network": "^0.2.0",
+    "@kapp/proxy": "^0.1.13",
+    "@kapp/rate-limiter": "^0.1.0",
+    "@kapp/trace": "^0.1.9",
+    "egg": "^2.0.0",
+    "egg-view-art": "^1.0.3",
+    "egg-zookeeper": "^2.0.0"
+  },
+  "lint-staged": {
+    "**/*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "devDependencies": {
+    "autod": "^3.0.1",
+    "autod-egg": "^1.0.0",
+    "cross-env": "^5.1.3",
+    "egg-scripts": "^2.1.0",
+    "egg-bin": "^4.3.5",
+    "egg-ci": "^1.8.0",
+    "egg-mock": "^3.13.0",
+    "webstorm-disable-index": "^1.2.0",
+    "eslint": "^4.16.0",
+    "eslint-config-kaola": "^0.1.3",
+    "babel-eslint": "^8.2.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^6.1.0",
+    "axios": "^0.17.1"
+  },
+  "engines": {
+    "node": ">=8.9.0"
+  },
+  "scripts": {
+    "precommit": "lint-staged",
+    "egg-scripts": "node ./node_modules/egg-scripts/bin/egg-scripts",
+    "egg-bin": "node ./node_modules/egg-bin/bin/egg-bin",
+    "cross-env": "node ./node_modules/cross-env/dist/bin/cross-env",
+    "start": "npm run egg-scripts -- start --title=ksvue-factory-pre",
+    "stop": "npm run egg-scripts -- stop --title=ksvue-factory-pre",
+    "debug": "npm run egg-bin -- debug",
+    "dev": "npm run egg-bin -- dev",
+    "test": "npm run egg-bin -- test",
+    "cov": "npm run egg-bin -- cov",
+    "lint": "eslint .",
+    "ci": "npm run lint && npm run cov",
+    "autod": "autod"
+  },
+  "ci": {
+    "version": "8"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "egg": {
+    "framework": "@kapp/core"
+  },
+  "author": "zwwill",
+  "license": "MIT"
+}
