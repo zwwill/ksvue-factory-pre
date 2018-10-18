@@ -9,6 +9,11 @@ exports.network = {
     package: '@kapp/network',
 };
 
+exports.vuessr = {
+    enable: true,
+    package: '@kapp/vuessr'
+};
+
 exports.health = {
     enable: true,
     package: '@kapp/health'
@@ -17,11 +22,6 @@ exports.health = {
 exports.rateLimiter = {
     enable: true,
     package: '@kapp/rate-limiter'
-};
-
-exports.grayscale = {
-    enable: true,
-    package: '@kapp/grayscale'
 };
 
 exports.trace = {
@@ -40,6 +40,11 @@ exports.kagent = {
 exports.mock = {
     enable: false,
     package: '@kaola/kapp-mock'
+};
+
+exports.grayscale = {
+    enable: false,
+    package: '@kapp/grayscale'
 };
 
 exports.art = {

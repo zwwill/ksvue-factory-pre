@@ -24,6 +24,14 @@ module.exports = function(appInfo) {
         ].join(',')
     };
 
+    config.vuessr = {
+        cache: true,
+        layout: path.join(appInfo.baseDir, 'app/view/layout.html'),
+        renderOptions: {
+            runInNewContext: false
+        }
+    };
+
     config.httpclient = {
         enableDNSCache: true
     };
@@ -55,7 +63,7 @@ module.exports = function(appInfo) {
     };
 
     config.proxies = {
-        tomcat: {
+        target: {
             // 统一设置代理时的 headers
             // 类似于 proxy_set_header Host 'goods.kaola.com'
             // 不填会使用当前 node 应用获取到的 Host 值
@@ -90,7 +98,7 @@ module.exports = function(appInfo) {
         catchErrorOnStarting: false,
         timeout: 5000,
         webServers: {
-            tomcat: {
+            target: {
                 application: 'ksvue-factory-pre',
                 env: appInfo.kaolaEnv
             }

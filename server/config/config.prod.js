@@ -19,7 +19,7 @@ module.exports = function(appInfo) {
     };
 
     config.proxies = {
-        tomcat: {
+        target: {
             upstream: {
                 check: {
                     // 线上启用健康检查

@@ -10,7 +10,7 @@ class HomeController extends Controller {
         await this.ctx.render('ERROR_500.html');
     }
     async proxy() {
-        await this.ctx.proxyPass('target').getResponse();
+        await this.ctx.proxyPass('target').response();
     }
 }
 

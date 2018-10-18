@@ -5,9 +5,12 @@
     "scripts": {
         "dev": "node ./scripts/dev.js",
         "test": "echo \"Error: no test specified\" && exit 1",
-        "postinstall": "cd ./server && npm i",
+        "clean": "rm -rf server/node_modules client/node_modules",
+        "postinstall": "sh scripts/install.sh",
         "start": "cd server && npm start",
-        "clean": "rm -rf server/node_modules client/node_modules"
+        "reboot": "sh scripts/reboot.sh",
+        "client:dev": "npm run dev --prefix=./client/",
+        "client:build": "npm run build --prefix=./client/"
     },
     "devDependencies": {
         "inquirer": "^6.0.0"
