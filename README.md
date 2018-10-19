@@ -10,17 +10,22 @@ ksvue-factory-pre
 
 ### 本地开发
 
-```bash
-$ chmod x+ ./scripts/*
-$ ./scripts/build.sh
-$ ./scripts/start.sh
+``` bash
+# install dependencies
+npm install
+
+# 客户端打包
+npm run client:dev
+
+# 服务端启动
+npm run dev
 ```
 
 ### 部署
 
 ```bash
-$ npm start --prefix=./server
-$ npm stop  --prefix=./stop
+# Build
+npm run client:build
 ```
 
 ### 单元测试
