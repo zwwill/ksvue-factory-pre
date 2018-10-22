@@ -2,7 +2,6 @@
 const path = require('path')
 const config = require('../config')
 const modules = require('./module')
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 function resolve (dir) {
@@ -46,15 +45,6 @@ module.exports = (conf)=> {
             //     allChunks: true
             // }),
             // copy template layout file to server view folder
-            new CopyWebpackPlugin([{
-                from: {
-                    glob: path.resolve(__dirname, '../src/template/**/*.html'),
-                    dot: false,
-                },
-                to: path.resolve(__dirname, '../../server/app/view'),
-                context: path.resolve(__dirname, '../src/template'),
-                force: false,
-            }])
         ]
     }
 }

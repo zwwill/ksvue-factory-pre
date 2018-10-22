@@ -44,6 +44,8 @@ module.exports = {
         // index: path.resolve(__dirname, '../dist/index.html'),
 
         // Paths
+        publicRoot: path.resolve(__dirname, '../../server/app/public'),
+        viewRoot: path.resolve(__dirname, '../../server/app/view'),
         assetsRoot: path.resolve(__dirname, '../../server/app/public/dist'),
         assetsClientRoot: path.resolve(__dirname, '../../server/app/public/dist'),
         assetsServerRoot: path.resolve(__dirname, '../../server/app/view/bundle'),

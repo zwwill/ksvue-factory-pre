@@ -1,7 +1,9 @@
+const path = require('path')
 const webpack = require('webpack')
 const config = require('../config')
 const merge = require('webpack-merge')
 const baseWebpackConfig = require('./webpack.base.conf')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const SWPrecachePlugin = require('sw-precache-webpack-plugin')
 const VueSSRClientPlugin = require('vue-server-renderer/client-plugin')
 const WebpackParallelUglifyPlugin = require('webpack-parallel-uglify-plugin')
@@ -40,7 +42,12 @@ let ccf = {
             name: 'common',
             minChunks: 2,
         }),
-        new VueSSRClientPlugin()
+        new VueSSRClientPlugin(),
+        new CopyWebpackPlugin([{
+            from: path.resolve(__dirname, '../src/static'),
+            to: path.resolve(__dirname, '../../server/app/public/static'),
+            ignore: ['.*']
+        }])
     ]
 }
 

@@ -1,6 +1,8 @@
+const path = require('path')
 const config = require('../config')
 const merge = require('webpack-merge')
 const nodeExternals = require('webpack-node-externals')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const baseWebpackConfig = require('./webpack.base.conf.js')
 const VueSSRServerPlugin = require('vue-server-renderer/server-plugin')
 module.exports = merge(baseWebpackConfig({}), {
@@ -30,7 +32,16 @@ module.exports = merge(baseWebpackConfig({}), {
   // 构建为单个 JSON 文件的插件。
   // 默认文件名为 `vue-ssr-server-bundle.json`
   plugins: [
-    new VueSSRServerPlugin()
+    new VueSSRServerPlugin(),
+    new CopyWebpackPlugin([{
+      from: {
+          glob: path.resolve(__dirname, '../src/template/**/*.html'),
+          dot: false,
+      },
+      to: path.resolve(__dirname, '../../server/app/view'),
+      context: path.resolve(__dirname, '../src/template'),
+      force: false,
+    }])
   ]
 })
 

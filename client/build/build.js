@@ -49,9 +49,13 @@ const wp = async (webpackConf, side)=>{
 
 spinner.start()
 
-rm(path.join(config.build.assetsRoot), async err => {
+rm(path.join(config.build.publicRoot), async err => {
     if (err) throw err
     await buildRouter()
-    wp(webpackServerConfig,'server')
     wp(webpackClinetConfig,'client')
+})
+
+rm(path.join(config.build.viewRoot), async err => {
+    if (err) throw err
+    wp(webpackServerConfig,'server')
 })
